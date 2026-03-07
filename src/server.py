@@ -35,7 +35,7 @@ def handle(client):
             usernames.remove(username)
             break
 
-# Recieiving / Listening Function 
+# Receiving / Listening Function 
 def receive():
     while True:
         # Accept Connection
@@ -54,7 +54,7 @@ def receive():
         client.send("Connected to server!".encode('ascii'))
                     
         # Start Handling Thread For Client)
-        thread = thread.Thread(target=handle, args=(client,))
+        thread = threading.Thread(target=handle, args=(client,))
         thread.start()
 
 receive()

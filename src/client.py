@@ -12,16 +12,16 @@ client.connect(('127.0.0.1', 8000))
 def receive():
     while True:
         try:
-            # Receieve Message From Server
+            # Receive Message From Server
             # If 'USER' Send Username
             message = client.recv(1024).decode('ascii')
             if message == 'USER':
-                client.send(username.endcode('ascii'))
+                client.send(username.encode('ascii'))
             else: 
                 print(message)
         except:
             # Close Connection When Error
-            print("An error occured!")
+            print("An error occurred!")
             client.close()
             break
 
