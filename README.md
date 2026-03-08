@@ -23,7 +23,7 @@ Screenshots and captured packets below show messages sent by clients being inter
 
 ### Proof-of-Concept Screenshots
 ![Sniffer intercepting server packets](screenshots/phase2_sniffer_intercepting_server_packets.png)  
-![Sniffer PoC 1](screenshots/phase2_sniffer_intercepting_server_packets.png)
+
 ![Sniffer PoC 2](screenshots/phase2_sniffer_poc.png)   
 
 **Defense (Next Step):**  
