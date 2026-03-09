@@ -61,7 +61,6 @@ TCP port 8000
 Any messages sent between the chat clients and server can be intercepted and inspected.
  
 
-**Proof:**  
 Screenshots and captured packets below show messages sent by clients being intercepted on the server’s network interface (`eth0`).
 
 ### Proof-of-Concept Screenshots
