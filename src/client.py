@@ -1,11 +1,16 @@
 import socket
 import threading
+import ssl
 
 # Choosing Username
 username = input("Choose your username: ")
 
 # Connecting To Server
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+
+# Creating Socket and Wrapping in SSL
+client = ssl.wrap_socket(client, ssl_version=ssl.PROTOCOL_TLS_CLIENT, cert_reqs=ssl.CERT_NONE)
+
 client.connect(('209.38.232.217', 8000))
 
 # Listening To Server and Sending Username
