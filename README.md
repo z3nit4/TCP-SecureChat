@@ -5,7 +5,7 @@ A security-focused TCP chatroom built in Python to demonstrate **offensive netwo
 This project simulates a real-world DevSecOps workflow:
 
 1. Build a working system
-2. ttack the system to identify vulnerabilities
+2. Attack the system to identify vulnerabilities
 3. Implement security controls to mitigate the attack
 
 The project is structured as a **progressive security lab**, where each phase introduces a new vulnerability and its corresponding defense.
