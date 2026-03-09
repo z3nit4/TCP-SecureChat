@@ -19,3 +19,5 @@ sniffed_messages.txt
 
 # TLS certificates
 certs/key.pem
+
+README2.md
