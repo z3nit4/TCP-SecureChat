@@ -42,7 +42,7 @@ Phase 2 - Build a packet sniffer to intercept TCP messages.
 
 To demonstrate the vulnerability of plaintext TCP communication, a **custom packet sniffer** was developed.
 
-**The Attack (Offensive):**
+## The Attack (Offensive):
 
 ### Sniffer Tool
 
