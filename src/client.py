@@ -8,8 +8,13 @@ username = input("Choose your username: ")
 # Connecting To Server
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-# Creating Socket and Wrapping in SSL
-client = ssl.wrap_socket(client, ssl_version=ssl.PROTOCOL_TLS_CLIENT, cert_reqs=ssl.CERT_NONE)
+# Create SSL context for client
+context = ssl.SSLContext(ssl.PROTOCOL_TLS_CLIENT)
+context.check_hostname = False
+context.verify_mode = ssl.CERT_NONE
+
+# Wrap the socket in SSL
+client = context.wrap_socket(client, server_hostname='209.38.232.217')
 
 client.connect(('209.38.232.217', 8000))
 

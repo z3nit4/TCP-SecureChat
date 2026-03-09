@@ -8,7 +8,7 @@ port = 8000
 
 # TLS Context
 context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
-context.load_cert_chain(certfile="certs/server.crt", keyfile="certs/server.key")
+context.load_cert_chain(certfile="certs/cert.pem", keyfile="certs/key.pem")
 
 # Starting Server
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -50,7 +50,7 @@ def receive():
         print(f"Connected with {str(address)}")
         
         # Wrap client socket with TLS
-        client = context.wrap_socket(client_socket, server_side=True)
+        client = context.wrap_socket(client, server_side=True)
 
         # Request And Store Username
         client.send('USER'.encode('ascii'))
