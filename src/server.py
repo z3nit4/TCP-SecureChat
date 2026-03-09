@@ -1,14 +1,20 @@
 import socket
 import threading
+import ssl
 
 # Connection Data
 host = '0.0.0.0'
 port = 8000
 
+# TLS Context
+context = ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER)
+context.load_cert_chain(certfile="certs/server.crt", keyfile="certs/server.key")
+
 # Starting Server
 server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 server.bind((host, port))
 server.listen()
+print(f"Server listening on {host}:{port} with TLS")
 
 clients = []
 usernames = []
@@ -27,12 +33,13 @@ def handle(client):
             broadcast(message)
         except:
             # Removing And Closing Clients
-            index = clients.index(client)
-            clients.remove(client)
-            client.close()
-            username = usernames[index]
-            broadcast(f"{username} left!".encode('ascii'))
-            usernames.remove(username)
+            if clients in clients:
+                index = clients.index(client)
+                clients.remove(client)
+                client.close()
+                username = usernames[index]
+                broadcast(f"{username} left!".encode('ascii'))
+                usernames.remove(username)
             break
 
 # Receiving / Listening Function 
@@ -42,6 +49,9 @@ def receive():
         client, address = server.accept()
         print(f"Connected with {str(address)}")
         
+        # Wrap client socket with TLS
+        client = context.wrap_socket(client_socket, server_side=True)
+
         # Request And Store Username
         client.send('USER'.encode('ascii'))
         username = client.recv(1024).decode('ascii')
