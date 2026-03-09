@@ -14,4 +14,8 @@ venv/
 .DS_Store
 Thumbs.db
 
+# PoC
 sniffed_messages.txt
+
+# TLS certificates
+certs/key.pem
