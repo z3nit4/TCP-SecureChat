@@ -3,12 +3,12 @@ import sqlite3
 conn = sqlite3.connect("database/chat.db")
 cursor = conn.cursor()
 
-cusrsor.execute("""
+cursor.execute("""
 CREATE TABLE IF NOT EXISTS users(
-id INTEGER PRIMARY KEY AUTOINCREMENT,
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT UNIQUE NOT NULL, 
     password_hash TEXT NOT NULL,
-    created_at TIMESTAMP DEAFULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )
 """)
 
